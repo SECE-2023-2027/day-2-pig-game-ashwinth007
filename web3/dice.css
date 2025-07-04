@@ -1,66 +1,80 @@
-.container {
-    border: 2px solid green;
-    width: 100%;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+ body {
+            background: linear-gradient(135deg, #f81394 4%, #dc41b8 96%);
+            color: #fdfbfb;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-}
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 90vw;
+            position: absolute;
+        }
 
-.player1 {
-    position: absolute;
-    left: 35%;
-    border: 2px solid rgb(0, 0, 0);
-    width: 20%;
-    height: 40%;
-    place-items: center;
-    background-color: lightpink;
-    
-}
-body{
-    background-color: palevioletred;
-}
+        .left,.right {
+            width: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 32px 24px 24px 24px;
+            border-radius: 0%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f982c3;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
 
-.player2 {
-    border: 2px solid rgb(0, 0, 0);
-    position: absolute;
-    left: 55%;
-    width: 20%;
-    height: 40%;
-    place-items: center;
-    background-color: lightpink;
-}
-#newgame{
-    border: 2px;
-    position: absolute;
-    left: 53%;
-    top: 35%;
-}
-#rolldice{
-    position: absolute;
-    left: 53%;
-    top: 55%;
-}   
-#hold{
-    position: absolute;
-    left: 54%;
-    top: 60%;
-}
-.text,.text2{
-    border: 2px solid black;
-    background-color: rgb(203, 181, 199);
-    border-radius: 15px;
-    padding: 8px 30px;
-    position: absolute;
-    top: 60%;
-    left:30%
-}
-img{
-    height: 80px;
-    width: 80px;
-    position: absolute;
-    top: 42%;
-    left:53%
-}
+        .reset,.roll,.hold {
+            color: #232526;
+            background: #f7f5f5;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            width: 130px;
+            height: 40px;
+            cursor: pointer;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+        }
+        .reset{
+            margin-bottom: 410px;
+        }
+        .hold {
+            margin-top: 245px;
+        }
+        .roll{
+            margin-top: 150px; 
+        }
+
+        .p1,.p2 {
+            font-size: 1.6rem;
+            color: #232526;
+            text-align: center;
+            bottom: 20px;
+            margin-top: 80px;
+            margin-bottom: 200px;
+        }
+        .score11,.score12 {
+            color: #fbfcfc;
+            background: #ea2386;
+            border-radius: 10px;
+            width: 200px;
+            height: 150px;
+            font-size: 2.1rem;
+            margin: 8px 0;
+            text-align: center;
+            justify-items: auto;
+        }
+        img {
+            width: 120px;
+            height: 120px;
+            margin-top: 130px;
+            background: #fff;
+            border-radius: 12px;
+            position: absolute;
+            margin-bottom: 200px;
+          
+        }
