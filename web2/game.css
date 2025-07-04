@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', monospace;
+}
+
+body {
+  background-color: #222;
+  color: #eee;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.again {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #eee;
+  color: #222;
+  border: none;
+  border-radius: 5px;
+}
+
+.number {
+  font-size: 4rem;
+  background-color: #eee;
+  color: #222;
+  width: 100px;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 10px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+input.guess {
+  width: 100px;
+  padding: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+button.check {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #eee;
+  color: #222;
+  border: none;
+  border-radius: 5px;
+}
+.hidden{
+    display: none;
+}
+
+.message {
+  font-size: 1.2rem;
+}
+
+.label-score,
+.label-highscore {
+  font-size: 1.2rem;
+}

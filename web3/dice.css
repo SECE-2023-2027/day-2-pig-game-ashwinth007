@@ -1,0 +1,66 @@
+.container {
+    border: 2px solid green;
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+.player1 {
+    position: absolute;
+    left: 35%;
+    border: 2px solid rgb(0, 0, 0);
+    width: 20%;
+    height: 40%;
+    place-items: center;
+    background-color: lightpink;
+    
+}
+body{
+    background-color: palevioletred;
+}
+
+.player2 {
+    border: 2px solid rgb(0, 0, 0);
+    position: absolute;
+    left: 55%;
+    width: 20%;
+    height: 40%;
+    place-items: center;
+    background-color: lightpink;
+}
+#newgame{
+    border: 2px;
+    position: absolute;
+    left: 53%;
+    top: 35%;
+}
+#rolldice{
+    position: absolute;
+    left: 53%;
+    top: 55%;
+}   
+#hold{
+    position: absolute;
+    left: 54%;
+    top: 60%;
+}
+.text,.text2{
+    border: 2px solid black;
+    background-color: rgb(203, 181, 199);
+    border-radius: 15px;
+    padding: 8px 30px;
+    position: absolute;
+    top: 60%;
+    left:30%
+}
+img{
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 42%;
+    left:53%
+}
