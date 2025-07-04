@@ -11,28 +11,20 @@
 
 <body>
     <div class="container">
-        <img id="dice" src="dice1.jpg" alt="Dice Image">
-        <div class="player1">
-            <h1 id="player">PLAYER 1</h1>
-            <h1 id="numbers">0</h1>
-            <div class="text">
-            <h3> CURRENT</h3>
-            <h3 id="current">0</h3>
-            </div>
+        <div class="left">
+            <h3 class="p1">PLAYER 1 <br><span id="score1">0</span></h3>
+            <p class="score11">current <br> <span class="score1">0</span></p>
         </div>
-        <div class="player2">
-            <h1 id="players2">PLAYER 2</h1>
-            <h1 id="numbers2">0</h1>
-            <div class="text2">
-            <h3> CURRENT</h3>
-            <h3 id="current2">0</h3>
-            </div>
+        <div class="right">
+            <h3 class="p2">PLAYER 2 <br><span id="score2">0</span></h3>
+            <p class="score12">current <br><span class="score2">0</span></p>
         </div>
-            <button id="newgame">new game</button>
-            <button id="rolldice">Roll DICE</button>
-            <button id="hold">Hold</button>
+        
     </div>
-    <img id="dice" src="dice.js" alt="Dice Image">
+    <button class="reset">NEW GAME</button>
+        <img src="dice1.jpg" alt="Dice" />
+        <button class="roll">ROLL DICE</button>
+        <button class="hold">HOLD</button>
 </body>
 
 </html>
