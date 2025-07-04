@@ -1,63 +1,97 @@
-const rollBtn = document.getElementById("rolldice");
-const newGameBtn = document.getElementById("newgame");
+const score1 = document.getElementById('score1');
+    const score2 = document.getElementById('score2');
+    const currentScore1 = document.querySelector('.score11 .score1');
+    const currentScore2 = document.querySelector('.score12 .score2');
+    const rollButton = document.querySelector('.roll');
+    const holdButton = document.querySelector('.hold');
+    const resetButton = document.querySelector('.reset');
+    const diceImage = document.querySelector('img');
+    let scores = [0, 0];
+    let currentScore = 0;
+    let activePlayer = 0; 
+    let gameActive = true;
 
-const score1El = document.getElementById("numbers");
-const score2El = document.getElementById("numbers2");
-const current1El = document.getElementById("current");
-const current2El = document.getElementById("current2");
+    function displayScores() {
+        score1.textContent = scores[0];
+        score2.textContent = scores[1];
+        currentScore1.textContent = activePlayer === 0 ? currentScore : 0;
+        currentScore2.textContent = activePlayer === 1 ? currentScore : 0;
+    }
 
-const diceImage = document.getElementById("dice"); // Use existing dice image from HTML
+    function switchPlayer() {
+        currentScore = 0;
+        displayScores();
+        document.querySelectorAll('.p1, .p2').forEach(el => el.style.fontWeight = 'normal');
+        activePlayer = activePlayer === 0 ? 1 : 0;
+        document.querySelector(activePlayer === 0 ? '.left' : '.right').style.background = 'rgba(255, 255, 255, 0.08)';
+        document.querySelector(activePlayer === 0 ? '.right' : '.left').style.background = '#f982c3';
+    }
 
-let activePlayer = 1;
-let currentScore = 0;
-let scores = [0, 0];
-
-// Roll Dice Button Logic
-rollBtn.addEventListener("click", () => {
-    const dice = Math.floor(Math.random() * 6) + 1;
-
-    // Show dice image
-    diceImage.src = `dice${dice}.jpg`; // Use backticks for template string
-
-    if (dice !== 1) {
-        // Add to current score
-        currentScore += dice;
-        if (activePlayer === 1) {
-            current1El.textContent = currentScore;
-        } else {
-            current2El.textContent = currentScore;
+    rollButton.addEventListener('click', function() {
+        if (!gameActive) return;
+        const diceRoll = Math.floor(Math.random() * 6) + 1;
+        if (diceRoll===1){
+            diceImage.src = "dice1.jpg";
         }
-    } else {
-        // Switch player if dice == 1
-        switchPlayer();
-    }
-});
+        else if(diceRoll===2){
+            diceImage.src = 'dice2.jpg';
+        }
+        else if(diceRoll===3){
+            diceImage.src = 'dice3.jpg';
+        }
+        else if(diceRoll===4){
+            diceImage.src = 'dice4.jpg';
+        }
+        else if(diceRoll===5){
+            diceImage.src = 'dice5.jpg';
+        }
+        else if(diceRoll===6){
+            diceImage.src = "dice6.jpg";
+        }
+        if (diceRoll !== 1) {
+            currentScore += diceRoll;
+            displayScores();
+        } else {
+            switchPlayer();
+        }
+    });
 
-// Switch player logic
-function switchPlayer() {
-    // Reset current score on UI
-    if (activePlayer === 1) {
-        current1El.textContent = 0;
-    } else {
-        current2El.textContent = 0;
-    }
+    holdButton.addEventListener('click', function() {
+        if (!gameActive) return;
+        scores[activePlayer] += currentScore;
+        if (scores[activePlayer] >= 100) {
+            displayScores();
+            gameActive = false;
+            document.querySelector(activePlayer === 0 ? '.p1' : '.p2').textContent += ' 🏆';
+            alert(`Player ${activePlayer + 1} wins!`);
+        } else {
+            switchPlayer();
+        }
+    });
 
-    // Reset current score
-    currentScore = 0;
-
-    // Toggle active player
-    activePlayer = activePlayer === 1 ? 2 : 1;
-}
-
-// New Game Reset Logic
-newGameBtn.addEventListener("click", () => {
+    resetButton.addEventListener('click', function() {
+        scores = [0, 0];
+        currentScore = 0;
+        activePlayer = 0;
+        gameActive = true;
+        score1.textContent = '0';
+        score2.textContent = '0';
+        currentScore1.textContent = '0';
+        currentScore2.textContent = '0';
+        diceImage.src = '1.jpg';
+        document.querySelectorAll('.p1, .p2').forEach(el => {
+            el.style.fontWeight = 'normal';
+            el.textContent = el.classList.contains('p1') ? 'PLAYER 1 \n0' : 'PLAYER 2 \n0';
+        });
+        document.querySelector('.p1').style.fontWeight = 'bold';
+    });
     scores = [0, 0];
     currentScore = 0;
-    activePlayer = 1;
-
-    score1El.textContent = 0;
-    score2El.textContent = 0;
-    current1El.textContent = 0;
-    current2El.textContent = 0;
-    diceImage.src = "dice1.jpg"; // Reset dice image to default
-});
+    activePlayer = 0;
+    gameActive = true;
+    score1.textContent = '0';
+    score2.textContent = '0';
+    currentScore1.textContent = '0';
+    currentScore2.textContent = '0';
+    diceImage.src = "1.jpg";
+    document.querySelector('.left').style.background='rgba(255, 255, 255, 0.08)';
